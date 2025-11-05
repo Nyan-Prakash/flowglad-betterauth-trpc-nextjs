@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { TRPCReactProvider } from "@/components/providers";
+import { ReactQueryProvider } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
 import { FlowgladProvider } from '@flowglad/react';
 import { PropsWithChildren } from "react";
@@ -34,12 +34,12 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TRPCReactProvider>
+        <ReactQueryProvider>
           <FlowgladProvider loadBilling={!!user}>
             <Navbar />
             {children}
           </FlowgladProvider>
-        </TRPCReactProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
